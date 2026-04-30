@@ -24,13 +24,15 @@ router_settings:
 model_list:
   - model_name: openclaw-main
     litellm_params:
-      model: gemini/gemini-2.0-flash
+      model: openai/gemma-4-31b-it
+      api_base: https://generativelanguage.googleapis.com/v1beta/openai/
       api_key: os.environ/GEMINI_API_KEY
+      drop_params: true
       rpm: 60
       tpm: 100000
       weight: 1
     model_info:
-      id: gemini-2-0-flash
+      id: gemma-31-b
 
   - model_name: openclaw-main
     litellm_params:
