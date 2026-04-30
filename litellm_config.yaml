@@ -17,21 +17,11 @@ router_settings:
   num_retries: 2
   timeout: 120
 
-  redis_host: redis
+  redis_host: host.docker.internal
   redis_port: 6379
-  redis_password: ""
+  redis_password: os.environ/REDIS_PASSWORD
 
 model_list:
-  - model_name: openclaw-main
-    litellm_params:
-      model: openai/gpt-4o-mini
-      api_key: os.environ/OPENAI_API_KEY
-      rpm: 50
-      tpm: 100000
-      weight: 1
-    model_info:
-      id: openai-gpt-4o-mini
-
   - model_name: openclaw-main
     litellm_params:
       model: gemini/gemini-2.0-flash
@@ -41,36 +31,6 @@ model_list:
       weight: 1
     model_info:
       id: gemini-2-0-flash
-
-  - model_name: openclaw-main
-    litellm_params:
-      model: anthropic/claude-3-5-haiku-latest
-      api_key: os.environ/ANTHROPIC_API_KEY
-      rpm: 40
-      tpm: 100000
-      weight: 1
-    model_info:
-      id: anthropic-claude-3-5-haiku
-
-  - model_name: openclaw-main
-    litellm_params:
-      model: groq/llama-3.1-8b-instant
-      api_key: os.environ/GROQ_API_KEY
-      rpm: 30
-      tpm: 60000
-      weight: 1
-    model_info:
-      id: groq-llama-3-1-8b-instant
-
-  - model_name: openclaw-main
-    litellm_params:
-      model: openrouter/google/gemini-2.0-flash-001
-      api_key: os.environ/OPENROUTER_API_KEY
-      rpm: 30
-      tpm: 60000
-      weight: 1
-    model_info:
-      id: openrouter-gemini-2-0-flash
 
   - model_name: openclaw-main
     litellm_params:

@@ -1,20 +1,8 @@
 services:
-  redis:
-    image: redis:7-alpine
-    container_name: litellm-redis
-    restart: unless-stopped
-    command: ["redis-server", "--appendonly", "yes"]
-    volumes:
-      - redis-data:/data
-    ports:
-      - "6379:6379"
-
   litellm:
     image: ghcr.io/berriai/litellm:main-latest
     container_name: litellm-router
     restart: unless-stopped
-    depends_on:
-      - redis
     env_file:
       - .env
     ports:
@@ -25,6 +13,3 @@ services:
       - "--config=/app/config.yaml"
       - "--host=0.0.0.0"
       - "--port=4000"
-
-volumes:
-  redis-data:
